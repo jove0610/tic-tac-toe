@@ -39,26 +39,34 @@ ui.board.addEventListener('click', (e) => {
     }
     ui.renderBoard(game.board);
 
-    if (!game.isThereAWinner()) {
+    if (game.isThereADraw() && !game.isThereAWinner()) {
+      ui.message.textContent = `It's a Draw!`;
+    }
+    if (game.isThereAWinner()) {
+      ui.message.textContent = `${game.currentPlayer.name} Won!`;
+    }
+
+    ui.board.style.pointerEvents = 'none';
+
+    // Computer's turn
+    if (!game.isThereAWinner() && !game.isThereADraw()) {
       game.currentPlayer = game.switchPlayer(game.currentPlayer);
       setTimeout(() => {
         game.insertMarkRandomly(game.currentPlayer.mark);
         ui.renderBoard(game.board);
+
+        if (game.isThereADraw() && !game.isThereAWinner()) {
+          ui.message.textContent = `It's a Draw!`;
+        }
 
         if (game.isThereAWinner()) {
           ui.message.textContent = `${game.currentPlayer.name} Won!`;
         }
 
         game.currentPlayer = game.switchPlayer(game.currentPlayer);
+
+        ui.board.style.pointerEvents = 'auto';
       }, 500);
-    }
-
-    if (game.isThereADraw() && !game.isThereAWinner()) {
-      ui.message.textContent = `It's a Draw!`;
-    }
-
-    if (game.isThereAWinner()) {
-      ui.message.textContent = `${game.currentPlayer.name} Won!`;
     }
   }
 });

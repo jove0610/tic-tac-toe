@@ -1,5 +1,6 @@
 const gameController = (() => {
   const board = ['', '', '', '', '', '', '', '', ''];
+
   const player1 = { name: 'You', mark: 'X' };
   const player2 = { name: 'Computer', mark: 'O' };
   const currentPlayer = player1;
