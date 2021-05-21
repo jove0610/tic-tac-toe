@@ -1,16 +1,17 @@
 body {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  background: #303030;
-  color: #ddd;
+  background: linear-gradient(to right, #992a17, #e66650);
+  color: red;
 }
 
 .title {
+  color: #51e6a6;
   text-align: center;
 }
 
 .board {
-  background: #5e5e5e;
+  background: #73ffc2;
   display: grid;
   width: 306px;
   margin: auto;
@@ -30,11 +31,14 @@ body {
 }
 
 .message {
+  color: #73ffc2;
   text-align: center;
   font-size: 1.2rem;
 }
 
 .restartBtn {
+  background: #269967;
+  color: #fff;
   display: block;
   margin: auto;
   cursor: pointer;
